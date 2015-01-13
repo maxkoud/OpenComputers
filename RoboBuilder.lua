@@ -10,8 +10,14 @@ function place()
     for inv=1,16 do
       r.select(inv)
       if r.count>0 then brake() end
+      if inv=16 and r.count()<1 then nonono() end
     end
   end
+end
+
+function nonono() 
+--   print('Please, add a material')
+  error('Game is over')
 end
 
 while not r.detect() do
