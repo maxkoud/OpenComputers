@@ -1,5 +1,6 @@
 local r = require("robot")
 
+x,y = 0,1
 r.select(1)
 
 function place()
@@ -11,4 +12,34 @@ function place()
       if r.count>0 then brake() end
     end
   end
+end
+
+while not r.detect() do
+  r.forward()
+  place()
+  x = x+1
+end
+
+r.turnRight()
+
+while not r.detect() do
+  r.forward()
+  place()
+  y = y+1
+end
+
+while x>0 and y>0 do
+
+   for i=x,0,-1 do
+   r.turnRight()
+   place()
+   end
+   x = x-1
+
+   for j=y,0,-1 do
+   r.turnRight()
+   place()
+   end
+   y = y-1
+
 end
