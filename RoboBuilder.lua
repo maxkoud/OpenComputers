@@ -1,12 +1,11 @@
 local r = require("robot")
-
 x,y = 0,1
 r.select(1)
 
 function place()
   if r.count>0 then
     r.placeDown()
-  else
+    else
     for inv=1,16 do
       r.select(inv)
       if r.count>0 then brake() end
@@ -14,7 +13,6 @@ function place()
     end
   end
 end
-
 function nonono() 
 --   print('Please, add a material')
   error('Game is over')
@@ -25,19 +23,15 @@ while not r.detect() do
   place()
   x = x+1
 end
-
 r.turnRight()
-
 while not r.detect() do
   r.forward()
   place()
   y = y+1
 end
-
-r.turnRight
+r.turnRight()
 
 while x>0 and y>0 do
-
    for i=x,0,-1 do
    r.forward()
    place()
@@ -50,7 +44,7 @@ while x>0 and y>0 do
    place()
    end
    y = y-1
-   r.turnRight
-
+   r.turnRight()
 end
+
 print('Good job!')
